@@ -1,0 +1,18 @@
+ALGORITHM algorithm_name
+VAR
+    set1 : ARRAY_OF INTEGER[5]:=[2,5,3,8];
+    set2 : ARRAY_OF INTEGER[5]:=[4,3,6,2];
+    tab : ARRAY_OF INTEGER[];
+    found : BOOLEAN;
+    sum_commun : INTEGER :=0;
+BEGIN
+    tab:= Concat(set1,set2);
+    found:= false;
+    FOR i FROM 0 TO tab.length STEP 1  DO
+        FOR j FROM 0 TO tab.length STEP 1  DO
+            IF (tab[i] = tab[j] AND i<>j) THEN
+                sum_commun := sum_commun+tab[i];
+            END_IF
+        END_FOR
+    END_FOR
+END

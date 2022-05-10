@@ -1,0 +1,40 @@
+ALGORITHM algorithm_name
+VAR
+    set1 : ARRAY_OF INTEGER[5]:=[2,5,3,8];
+    set2 : ARRAY_OF INTEGER[5]:=[4,3,6,2];
+    found : BOOLEAN;
+    sum : INTEGER :=0;
+BEGIN
+
+    /*Compare each element of set one with the second 
+    set and if element is not present then add that element to sum*/
+    FOR i FROM 0 TO set1.length STEP 1  DO
+        found := false;
+        FOR j FROM 0 TO max set2.length step 1 DO
+            IF (set1[i] = set2[j] AND i<>j) THEN
+                found := true;
+                break;
+            END_IF
+        END_FOR
+        IF (found = false) THEN
+            sum := sum + set1[i];
+        END_IF
+    END_FOR
+    
+    /*Compare each element of set two with the first 
+    set and if element is not present then add that element to sum*/
+    FOR i FROM 0 TO set2.length STEP 1  DO
+        found := false;
+        FOR j FROM 0 TO max set1.length step 1 DO
+            IF (set2[i] = set1[j] AND i<>j) THEN
+                found := true;
+                break;
+            END_IF
+        END_FOR
+        IF (found = false) THEN
+            sum := sum + set2[i];
+        END_IF
+    END_FOR
+
+    Write('Sum of distinct elements is equal to ', sum);
+END

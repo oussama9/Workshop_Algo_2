@@ -1,0 +1,23 @@
+ALGORITHM algorithm_name
+VAR
+    A : ARRAY_OF INTEGER[5]:=[2,5,3,8];
+    B : ARRAY_OF INTEGER[5]:=[4,3,6,2];
+    hash : HASH_TABLE<INTEGER,INTEGER>;
+    sum_distinct: INTEGER :=0;
+    
+BEGIN
+    FOR i FROM 0 TO set1.length STEP 1 DO       
+            IF (hash.lookup(A[i]) = true) THEN
+                hash.insert(A[i], 1 + hash.get(A[i]));
+            ELSE
+                 hash.insert(A[i], 1);
+            END_IF
+
+
+             IF (hash.lookup(B[i]) = true) THEN
+                hash.insert(B[i], 1 + hash.get(B[i]));
+            ELSE
+                 hash.insert(B[i], 1);
+            END_IF
+    END_FOR
+END
