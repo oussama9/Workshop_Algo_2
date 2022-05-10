@@ -1,0 +1,24 @@
+PROCEDURE insertion_sort(tab : ARRAY_OF INTEGER)
+VAR
+    i,j,key : INTEGER;
+BEGIN
+    FOR i FROM 1 TO tab.length STEP 1  DO
+         key := tab[i];
+         j = i - 1;
+    END_FOR
+    WHILE (j >= 0 AND tab[j] > key) DO
+
+            tab[j + 1] = tab[j];
+            j = j - 1;
+    END_WHILE
+
+    tab[j + 1] = key;
+END
+
+ALGORITHM algorithm_insertion_
+VAR
+    arr : ARRAY_OF INTEGER[];
+BEGIN
+    arr := [7,5,11,6,9];
+    insertion_sort(arr);
+END
