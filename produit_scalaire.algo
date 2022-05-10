@@ -1,0 +1,45 @@
+PROCEDURE saisir_number(VAR n:INTEGER)
+BEGIN
+    REPEAT
+        Write('n= ');
+        Read(n);
+    UNTIL (n=2) or (n=3)
+END;
+
+PROCEDURE remplir_vector(VAR t: ARRAY_OF INTEGER, n:INTEGER)
+VAR
+    i:INTEGER;
+BEGIN
+    FOR i FROM 1 TO n DO
+        Write('donner l''élement n°',i,'= ');
+        Read(t[i]);
+    END_FOR
+END
+
+FUNCTION calculer_ps(t1,t2:ARRAY_OF INTEGER, n:INTEGER) : INTEGER
+VAR
+    produit,i: INTEGER;
+BEGIN
+    produit:=0;
+    FOR i FROM 1 TO n DO
+        produit := produit + (t1[i]*t2[i]);
+    END_FOR
+    RETURN produit ;
+END
+
+ALGORITHM check_vectors
+VAR
+    v1,v2 : ARRAY_OF INTEGER;
+    ps,n: INTEGER;
+BEGIN
+    saisir_number(n);
+    remplir_vector(t1,n);
+    remplir_vector(t2,n);
+    ps:= calculer_ps(t1,t2,n);
+
+    IF (ps = 0) THEN
+        Write('v1 et v2 sont orthogonaux');
+    ELSE
+        Write('v1 et v2 ne sont pas orthogonaux')
+    END_IF
+END
